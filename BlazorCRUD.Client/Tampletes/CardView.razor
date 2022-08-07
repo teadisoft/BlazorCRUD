@@ -1,0 +1,58 @@
+﻿@using BlazorCRUD.Client.Pages
+@using BlazorCRUD.Client.Services
+@using BlazorCRUD.Shared.Common
+@using BlazorCRUD.Shared.Models
+@*@inject IModalService modal  *@
+@inject IModalDialogService ModalDialog
+
+<div class="grid_card">
+    <div>Name</div><div class="colSpan">@Sr.Name</div>
+    <!--CPU-->
+    <div>Cpu</div>
+    <div><progress max="@Sr.LimitCpu" value="@Sr.AllocationCpu" class="progress"/></div>
+    <div class="col_align">@Sr.AllocationCpu/@Sr.LimitCpu (%)</div>
+    <!--Memory-->
+    <div>Memory</div>
+    <div><progress max="@Sr.LimitMemory" value="@Sr.AllocationMemory" class="progress"/></div>
+    <div class="col_align">@Sr.AllocationMemory/@Sr.LimitMemory (%)</div>
+
+    <div>From~To</div><div class="colSpan">@DateTimeFormat.GetyyyyMMdd(Sr.CreateDate, Dash.jum) ~ @DateTimeFormat.GetyyyyMMdd(Sr.ExpriedDate, Dash.jum)</div>
+    <div class="btn_layout">
+        <button style="width:80px;" @onclick="(() => OnDetail(Sr))">Detail</button>
+        @*<button style="width:80px;" @onclick="OnDetail">Detail</button>*@
+        <button style="width:80px;" @onclick="OnModify">Modify</button>
+        <button style="width:80px;" @onclick="OnDelete">Delete</button>
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public SharedResource Sr { get; set; } = new SharedResource();
+
+    [Inject]
+    SharedResourceService SharedResourceService { get; set; }
+
+    [Inject]
+    NavigationManager NaviManager { get; set; }
+
+    private void OnDetail(SharedResource item)
+    {
+        SharedResourceService.SrItem = item;
+        ModalDialogOptions modeloption = new()
+        {
+            //Style = "width:800px;",
+            ShowCloseButton = false
+        };
+        ModalDialog.ShowDialogAsync<DetailSharedResource>("Detail", modeloption);
+    }
+
+     private void OnModify()
+    {
+        
+    }
+
+     private void OnDelete()
+    {
+        
+    }
+}

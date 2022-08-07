@@ -1,0 +1,30 @@
+﻿@page "/DetailSharedResource"
+@using BlazorCRUD.Client.Services
+@using BlazorCRUD.Shared.Models
+@using Blazor.ModalDialog
+
+<div class="grid">
+    <div class="name">Name</div><div class="cal">ExpiredDate</div>
+    <div><input class="name" @bind="@Sr.Name" readonly/></div>
+    <div><input class="cal" value="@Sr.ExpriedDate.ToString("yyyy-MM-dd")" readonly/></div>
+    <div class="grid_space"/>
+    
+    <div class="col_merge">Description</div>
+    <div class="col_merge"><textarea rows="4" class="textarea" @bind=@Sr.Description readonly/></div>
+    <div class="grid_space"/>
+
+    <div>Cpu (@Sr.AllocationCpu/@Sr.LimitCpu) %</div>
+    <div>Memory (@Sr.AllocationMemory/@Sr.LimitMemory) %</div>
+    <div class="name"><input type="range" style="width:100%;" max="@Sr.LimitCpu" value="@Sr.AllocationCpu" readonly="readonly"/></div>
+    <div class="cal"><input type="range" style="width:100%;" max="@Sr.LimitMemory" value="@Sr.AllocationMemory" readonly="readonly"/></div>
+    <div class="grid_space"/>
+    <div class="btn_layout">
+        <button style="width:80px;" @onclick="OnOk">Ok</button>
+        @*<button style="width:80px;" >Cancel</button>*@
+    </div>
+</div>
+
+@code
+{
+
+}

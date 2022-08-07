@@ -1,0 +1,34 @@
+﻿.grid_card {
+    display: grid;
+    grid-template-columns: 65px auto 100px;
+    width: 340px;
+    height: 280px;
+    grid-column-gap: 10px;
+    border: 1px solid;
+    border-width: thin;
+    border-radius: 20px;
+    border-color: gray;
+    padding: 15px;
+    border-style: outset;
+}
+
+    .colSpan {
+        grid-column: 2/4;
+    }
+
+    .progress {
+        height: 1.7em;
+        width:auto;
+    }
+
+    .col_align {
+        text-align:right;
+    }
+
+    .btn_layout {
+        grid-column: 1/-1;
+        text-align: right;
+        height: 35px;
+    }
+
+
