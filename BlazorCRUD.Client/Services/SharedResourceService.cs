@@ -7,16 +7,20 @@ namespace BlazorCRUD.Client.Services
     {
         protected readonly HttpClient httpclient;
 
-        public SharedResource SrItem { get; set; } = new SharedResource();
+        public SharedResourceModel SrItem { get; set; } = new SharedResourceModel();
 
         public SharedResourceService(HttpClient _httpclient)
         {
             this.httpclient = _httpclient;
         }
 
-        public async Task<IEnumerable<SharedResource>> GetSharedResources()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<SharedResourceModel>?> GetSharedResources()
         {
-            return await httpclient.GetFromJsonAsync<IEnumerable<SharedResource>>("Api/GetSharedResources");
+           return await httpclient.GetFromJsonAsync<IEnumerable<SharedResourceModel>?>("Api/GetSharedResources");
         }
     }
 }

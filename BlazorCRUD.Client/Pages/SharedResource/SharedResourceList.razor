@@ -1,0 +1,23 @@
+﻿@page "/SharedResourceList"
+@using BlazorCRUD.Client.Services
+@using BlazorCRUD.Client.Tampletes
+@using BlazorCRUD.Shared
+
+
+<div style="display:flex; grid-column-gap: 50px;">
+    <div><h3>SharedResourceList</h3></div>
+    <div><button type="button" @onclick="OnCreate" >등록</button></div>
+</div>
+
+@if (SharedResources == null)
+{
+    <deiv>No Data</deiv>
+}
+else
+{   <div class="auto-grid">
+    @foreach (var item in SharedResources)
+    {   
+        <CardView Sr="@item" />
+    }
+    </div>
+}

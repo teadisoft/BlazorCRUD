@@ -4,12 +4,12 @@ using BlazorCRUD.Shared.Models;
 using Microsoft.AspNetCore.Components;
 
 
-namespace BlazorCRUD.Client.Pages
+namespace BlazorCRUD.Client.Pages.SharedResource
 {
     public partial class DetailSharedResource : ComponentBase
     {
         [Parameter]
-        public SharedResource Sr { get; set; } = new();
+        public SharedResourceModel Sr { get; set; } = new();
 
         [Inject]
         SharedResourceService SharedResourceService { get; set; }

@@ -14,9 +14,9 @@ namespace BlazorCRUD.Server.Controllers
 
         [HttpGet]
         [Route("GetSharedResources")]
-        public IEnumerable<SharedResource> GetSharedResources()
+        public IEnumerable<SharedResourceModel> GetSharedResources()
         {
-            IEnumerable<SharedResource> sharedResources = new List<SharedResource>()
+            IEnumerable<SharedResourceModel> sharedResources = new List<SharedResourceModel>()
             {
                 new() { Name = "Shared 01", Description ="Test", LimitCpu = 100, LimitMemory = 100, AllocationCpu = 10, AllocationMemory = 25, CreateDate  = Convert.ToDateTime("2022-08-01"), ExpriedDate  = Convert.ToDateTime("2022-08-14")  }, 
                 new() { Name = "Shared 02", Description ="Test", LimitCpu = 100, LimitMemory = 100, AllocationCpu = 15, AllocationMemory = 40, CreateDate  = Convert.ToDateTime("2022-08-02"), ExpriedDate  = Convert.ToDateTime("2022-08-15")  },

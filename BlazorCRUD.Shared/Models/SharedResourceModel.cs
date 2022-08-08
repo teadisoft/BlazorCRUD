@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BlazorCRUD.Shared.Models
 {
-    public class SharedResource
+    public class SharedResourceModel
     {
-        public SharedResource()
+        public SharedResourceModel()
         {
         }
 

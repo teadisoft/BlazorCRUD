@@ -4,7 +4,7 @@ using BlazorCRUD.Shared.Base;
 using BlazorCRUD.Shared.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorCRUD.Client.Pages
+namespace BlazorCRUD.Client.Pages.SharedResource
 {
     public partial class EditSharedResource : ComponentBase
     {
@@ -18,7 +18,7 @@ namespace BlazorCRUD.Client.Pages
         IModalDialogService ModalDialog { get; set; }
 
         [Parameter]
-        public SharedResource Sr { get; set; } = new();
+        public SharedResourceModel Sr { get; set; } = new();
 
         public EditSharedResource()
         {

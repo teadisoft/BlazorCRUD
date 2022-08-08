@@ -1,8 +1,7 @@
-﻿@using BlazorCRUD.Client.Pages
+﻿@using BlazorCRUD.Client.Pages.SharedResource
 @using BlazorCRUD.Client.Services
 @using BlazorCRUD.Shared.Common
 @using BlazorCRUD.Shared.Models
-@*@inject IModalService modal  *@
 @inject IModalDialogService ModalDialog
 
 <div class="grid_card">
@@ -27,7 +26,7 @@
 
 @code{
     [Parameter]
-    public SharedResource Sr { get; set; } = new SharedResource();
+    public SharedResourceModel Sr { get; set; } = new SharedResourceModel();
 
     [Inject]
     SharedResourceService SharedResourceService { get; set; }
@@ -35,7 +34,7 @@
     [Inject]
     NavigationManager NaviManager { get; set; }
 
-    private void OnDetail(SharedResource item)
+    private void OnDetail(SharedResourceModel item)
     {
         SharedResourceService.SrItem = item;
         ModalDialogOptions modeloption = new()

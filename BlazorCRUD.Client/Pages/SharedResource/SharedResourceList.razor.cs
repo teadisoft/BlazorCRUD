@@ -4,7 +4,7 @@ using BlazorCRUD.Shared.Base;
 using BlazorCRUD.Shared.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorCRUD.Client.Pages
+namespace BlazorCRUD.Client.Pages.SharedResource
 {
     public partial class SharedResourceList : ComponentBase
     {
@@ -17,7 +17,7 @@ namespace BlazorCRUD.Client.Pages
         [Inject]
         IModalDialogService ModalDialog { get; set; }
 
-        IEnumerable<SharedResource> SharedResources { get; set; }
+        IEnumerable<SharedResourceModel> SharedResources { get; set; }
 
         public bool IsEditSharedResource { get; set; } = false;
 
