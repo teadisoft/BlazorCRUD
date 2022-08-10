@@ -1,9 +1,13 @@
 ﻿@page "/EditSharedResource"
+
 @using BlazorCRUD.Shared.Models
 
+<EditForm Model="@Sr" OnValidSubmit="@OnCreate">
+    <DataAnnotationsValidator/>
+    <ValidationSummary />
 <div class="grid">
     <div>Name</div><div>ExpiredDate</div>
-    <div ><input type="text" class="name" value="@Sr.Name"/></div>
+    <div ><InputText id="name" class="name" @bind-Value="@Sr.Name" /></div>
     <div>
         <input type="date" id="start" name="trip-start" @bind="Sr.ExpriedDate"
         min="2018-01-01" max="2099-12-31" class="cal">
@@ -17,7 +21,10 @@
     <div><input type="range" max="@Sr.LimitMemory" @bind="@Sr.AllocationMemory" style="width:100%;"/></div>
     <div class="grid_space"/>
      <div class="btn_layout">
-        <button style="width:80px;" @onclick="OnCreate">Create</button>
+        <button style="width:80px;" type="submit">Create</button>
         <button style="width:80px;" @onclick="OnCancel">Cancel</button>
     </div>
 </div>
+</EditForm>
+
+

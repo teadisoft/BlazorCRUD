@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ namespace BlazorCRUD.Shared.Models
         {
         }
 
+        [Required]
+        [StringLength(63, ErrorMessage = "Name is too long.")]
+        [MinLength(10, ErrorMessage = "Name is too Short.")]
         public string Name { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;
