@@ -3,6 +3,7 @@ using BlazorCRUD.Client.Services;
 using BlazorCRUD.Shared.Base;
 using BlazorCRUD.Shared.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace BlazorCRUD.Client.Pages.SharedResource
 {
