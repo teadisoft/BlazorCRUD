@@ -6,7 +6,7 @@
     <DataAnnotationsValidator/>
     <ValidationSummary />
 <div class="grid">
-    <div>Name</div><div>ExpiredDate</div>
+    <div>Name<label for="@(() => Sr.Name)" /></div><div>ExpiredDate</div>
     <div ><InputText id="name" class="name" @bind-Value="@Sr.Name" /></div>
     <div>
         <input type="date" id="start" name="trip-start" @bind="Sr.ExpriedDate"
