@@ -4,16 +4,23 @@
 
 <EditForm Model="@Sr" OnValidSubmit="@OnCreate">
     <DataAnnotationsValidator/>
-    <ValidationSummary />
+    @*<ValidationSummary />*@
 <div class="grid">
     <div>Name<label for="@(() => Sr.Name)" /></div><div>ExpiredDate</div>
-    <div ><InputText id="name" class="name" @bind-Value="@Sr.Name" /></div>
+    <div >
+        <input type="text" id="name" class="name" @bind-value="@Sr.Name" />
+        <ValidationMessage For="@(() => Sr.Name)" />
+    </div>
     <div>
         <input type="date" id="start" name="trip-start" @bind="Sr.ExpriedDate"
         min="2018-01-01" max="2099-12-31" class="cal">
     </div>
     <div class="grid_space"/>
-    <div style="grid-column:1/-1;">Description</div><div class="col_merge"><textarea rows="4" @bind="Sr.Description" class="textarea"/></div>
+    <div style="grid-column:1/-1;">Description</div>
+        <div class="col_merge" style="font-size:20px;">
+            <textarea @bind="Sr.Description" class="textarea" @attributes="inputTextAreaAttributes"/>
+            <ValidationMessage For="@(() => Sr.Description)" />
+        </div>
     <div class="grid_space"/>
     <div>Cpu (@Sr.AllocationCpu/@Sr.LimitCpu) %</div>
     <div>Memory (@Sr.AllocationMemory/@Sr.LimitMemory) %</div>

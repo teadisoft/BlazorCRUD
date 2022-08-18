@@ -2,11 +2,13 @@
 @using BlazorCRUD.Client.Services
 @using BlazorCRUD.Client.Tampletes
 @using BlazorCRUD.Shared
-
+@using BlazorCRUD.Client.Pages.Popups
 
 <div style="display:flex; grid-column-gap: 50px;">
     <div><h3>SharedResourceList</h3></div>
     <div><button type="button" @onclick="OnCreate" >등록</button></div>
+    <div><button type="button" @onclick="OnPopup" >팝업</button></div>
+    <div><a href="/SharedResourceList" @onclick="OnCreate" >팝업2</a></div>
 </div>
 
 @if (SharedResources == null)
@@ -14,7 +16,10 @@
     <deiv>No Data</deiv>
 }
 else
-{   <div class="auto-grid">
+{  
+    <GoPopup @ref="popupRef" />
+
+    <div class="auto-grid">
     @foreach (var item in SharedResources)
     {   
         <CardView Sr="@item" />

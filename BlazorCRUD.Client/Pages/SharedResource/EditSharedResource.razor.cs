@@ -18,6 +18,8 @@ namespace BlazorCRUD.Client.Pages.SharedResource
         [Inject]
         IModalDialogService ModalDialog { get; set; }
 
+        Dictionary<string, object> inputTextAreaAttributes = new Dictionary<string, object>();
+
         [Parameter]
         public SharedResourceModel Sr { get; set; } = new();
 
@@ -27,6 +29,7 @@ namespace BlazorCRUD.Client.Pages.SharedResource
 
         protected override void OnInitialized()
         {
+            inputTextAreaAttributes.Add("rows", "5");
         }
 
         private async void OnCreate()
@@ -46,5 +49,9 @@ namespace BlazorCRUD.Client.Pages.SharedResource
         {
             ModalDialog.Close(true);
         }
+
+        
+
+       
     }
 }

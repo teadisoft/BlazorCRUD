@@ -20,11 +20,12 @@
         <button style="width:80px;" @onclick="(() => OnDetail(Sr))">Detail</button>
         @*<button style="width:80px;" @onclick="OnDetail">Detail</button>*@
         <button style="width:80px;" @onclick="OnModify">Modify</button>
-        <button style="width:80px;" @onclick="OnDelete">Delete</button>
+        <button style="width:(@width_add)px;" @onclick="OnDelete">Delete</button>
     </div>
 </div>
 
 @code{
+
     [Parameter]
     public SharedResourceModel Sr { get; set; } = new SharedResourceModel();
 
@@ -33,6 +34,13 @@
 
     [Inject]
     NavigationManager NaviManager { get; set; }
+
+    string width_add { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        width_add = "10";
+    }
 
     private void OnDetail(SharedResourceModel item)
     {
